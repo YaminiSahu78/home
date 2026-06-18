@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Yamini Sahu | PhD Scholar, BIT Mesra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f9f7f4;
+      --text: #1a1a1a;
+      --muted: #5a5a5a;
+      --accent: #2a5f8f;
+      --accent-light: #ddeaf6;
+      --border: #ddd;
+      --card-bg: #ffffff;
+      --nav-bg: #ffffff;
+      --tag-bg: #eaf2fb;
+      --tag-text: #1d5a8a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15.5px;
+      line-height: 1.8;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+    }
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── HERO / ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 40px;
+      align-items: start;
+      margin-bottom: 56px;
+    }
+    .about-grid h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    .about-grid .subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+      font-weight: 400;
+    }
+    .about-grid p {
+      color: #333;
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.97rem;
+      font-weight: 300;
+      margin-bottom: 12px;
+      line-height: 1.85;
+    }
+    .avatar-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent-light);
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: var(--accent);
+      overflow: hidden;
+    }
+    img.avatar { display: block; }
+    .avatar svg { width: 100px; height: 100px; }
+
+    /* social icons */
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .social-link:hover { background: var(--accent-light); border-color: var(--accent); }
+
+    /* ── SECTION ── */
+    section { margin-bottom: 52px; scroll-margin-top: 70px; }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--text);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 8px;
+      margin-bottom: 24px;
+      display: inline-block;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── NEWS TABLE ── */
+    .news-table { width: 100%; border-collapse: collapse; }
+    .news-table tr { border-bottom: 1px solid #eee; }
+    .news-table td { padding: 10px 0; vertical-align: top; font-size: 0.88rem; }
+    .news-table td:first-child {
+      color: var(--accent);
+      font-weight: 600;
+      white-space: nowrap;
+      padding-right: 24px;
+      min-width: 110px;
+    }
+    .news-more { margin-top: 10px; font-size: 0.84rem; }
+    .news-more a { color: var(--accent); text-decoration: none; }
+    .news-more a:hover { text-decoration: underline; }
+
+    /* ── PUBLICATION CARD ── */
+    .pub-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      transition: box-shadow 0.2s;
+    }
+    .pub-card:hover { box-shadow: 0 4px 16px rgba(42,95,143,0.10); }
+    .pub-title {
+      font-weight: 600;
+      font-size: 0.96rem;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .pub-authors { font-size: 0.85rem; color: var(--muted); margin-bottom: 4px; }
+    .pub-authors strong { color: var(--text); }
+    .pub-venue {
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .pub-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pub-link {
+      font-size: 0.78rem;
+      padding: 3px 10px;
+      border-radius: 12px;
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .pub-link:hover { background: var(--accent); color: #fff; }
+
+    /* ── EXPERIENCE ── */
+    .exp-item { margin-bottom: 28px; }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .exp-role { font-weight: 700; font-size: 0.97rem; }
+    .exp-date { font-size: 0.82rem; color: var(--muted); }
+    .exp-org { font-size: 0.88rem; color: var(--accent); font-weight: 500; margin-bottom: 6px; }
+    .exp-desc { font-size: 0.88rem; color: #444; }
+
+    /* ── EDUCATION ── */
+    .edu-item { margin-bottom: 20px; display: flex; gap: 16px; }
+    .edu-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--accent); margin-top: 6px; flex-shrink: 0;
+    }
+    .edu-degree { font-weight: 600; font-size: 0.94rem; }
+    .edu-inst { font-size: 0.87rem; color: var(--muted); }
+    .edu-year { font-size: 0.82rem; color: var(--accent); }
+
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+    .skill-block { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; }
+    .skill-block h4 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent); margin-bottom: 8px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      background: var(--tag-bg); color: var(--tag-text);
+      border-radius: 12px; padding: 3px 10px; font-size: 0.78rem; font-weight: 500;
+    }
+
+    /* ── AWARDS ── */
+    .award-item { display: flex; gap: 14px; margin-bottom: 14px; align-items: flex-start; }
+    .award-year {
+      background: var(--accent); color: #fff;
+      border-radius: 4px; padding: 2px 8px; font-size: 0.78rem; font-weight: 600;
+      white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+    }
+    .award-text { font-size: 0.9rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .avatar-wrap { flex-direction: row; gap: 20px; }
+      .avatar { width: 100px; height: 100px; }
+      .exp-header { flex-direction: column; }
+      h1 { font-size: 1.5rem !important; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="#">Yamini Sahu</a>
+    <ul class="nav-links">
+      <li><a href="#about" class="active">ABOUT</a></li>
+      <li><a href="#publications">PUBLICATIONS</a></li>
+      <li><a href="#experience">EXPERIENCE</a></li>
+      <li><a href="#awards">AWARDS</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div>
+        <h1>Yamini Sahu</h1>
+        <p class="subtitle">PhD Research Scholar &nbsp;·&nbsp; Department of Computer Science &amp; Engineering, BIT Mesra, Ranchi</p>
+
+        <p>
+          I am a <strong>PhD Research Scholar</strong> at the Department of Computer Science &amp; Engineering, <strong>BIT Mesra, Ranchi</strong>. Previously, I served as a <strong>Research Scientist&nbsp;II</strong> at AIIMS Raipur (Sept 2024 – July 2026), where I led a research team at the Department of Trauma &amp; Emergency on the <em>Intelligent Emergency Healthcare System</em> project — developing critical care tools for remote hospitals, with a focus on <strong>real-time ECG analysis</strong> for early cardiovascular disease detection using deep learning and MLOps.
+        </p>
+        <p>
+          Previously, I was a Doctoral Researcher at IISER Bhopal's Department of Data Science and Engineering, contributing to urban informatics — building usage classification in Indian cities and predicting women's crime hotspots. My work bridges <strong>Computer Vision</strong>, <strong>Healthcare AI</strong>, and <strong>Geospatial AI</strong>.
+        </p>
+
+        <div class="socials">
+          <a class="social-link" href="mailto:yamini.sahu.rs@gmail.com">
+            ✉ Email
+          </a>
+          <a class="social-link" href="https://linkedin.com/in/yamini-sahu/" target="_blank">
+            in LinkedIn
+          </a>
+          <a class="social-link" href="https://scholar.google.com" target="_blank">
+            🎓 Google Scholar
+          </a>
+        </div>
+      </div>
+
+      <div class="avatar-wrap">
+        <!--
+          ════════════════════════════════════════
+          HOW TO ADD YOUR PHOTO:
+          1. Upload your photo to your GitHub repo
+             (e.g. save it as "assets/img/profile.jpg")
+          2. Replace the src below with your image path:
+             src="assets/img/profile.jpg"
+          OR use a direct image URL:
+             src="https://your-image-link.com/photo.jpg"
+          ════════════════════════════════════════
+        -->
+        <img
+          src="assets/img/profile.jpg"
+          alt="Yamini Sahu"
+          class="avatar"
+          onerror="this.style.display='none'; document.getElementById('avatar-placeholder').style.display='flex';"
+        />
+        <div id="avatar-placeholder" class="avatar" style="display:flex;">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="37" r="23" fill="#2a5f8f" opacity="0.55"/>
+            <ellipse cx="50" cy="92" rx="35" ry="22" fill="#2a5f8f" opacity="0.35"/>
+          </svg>
+        </div>
+        <p style="font-size:0.75rem;color:var(--muted);text-align:center;line-height:1.5;">
+          yamini.sahu.rs<br>@gmail.com
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news">
+    <h2 class="section-title">NEWS</h2>
+    <table class="news-table">
+      <tr>
+        <td>Aug 2026</td>
+        <td>🎉 Joined <strong>BIT Mesra, Ranchi</strong> as a PhD Research Scholar in the Department of Computer Science &amp; Engineering.</td>
+      </tr>
+      <tr>
+        <td>July 2026</td>
+        <td>Completed tenure as Research Scientist II at <strong>AIIMS Raipur</strong> (Dept. of Trauma &amp; Emergency).</td>
+      </tr>
+      <tr>
+        <td>2026</td>
+        <td>Paper under review — <em>A Robust Facial Emotion Recognition Framework: A Comparative Study on Dataset Diversity and Cross-Dataset Generalization.</em></td>
+      </tr>
+      <tr>
+        <td>May 2025</td>
+        <td>Paper accepted at <strong>ACM COMPASS 2025</strong> — <em>Smart Waste Management: Deep Learning-Based Garbage Classification for Sustainability.</em></td>
+      </tr>
+      <tr>
+        <td>Dec 2024</td>
+        <td>Two papers accepted at <strong>ACCV Workshop 2024</strong> — Building Usage Classification and Crime Prediction for Women Safety.</td>
+      </tr>
+      <tr>
+        <td>2024</td>
+        <td>Presented poster at <strong>WiDs, Mastercard AI Garage</strong> — <em>Beyond Footprints: Estimating Building Heights with Deep Learning and OpenStreetMap Features.</em></td>
+      </tr>
+      <tr>
+        <td>Sept 2024</td>
+        <td>Joined <strong>AIIMS Raipur</strong> as Research Scientist II at the Department of Trauma &amp; Emergency.</td>
+      </tr>
+      <tr>
+        <td>2024</td>
+        <td>Received <strong>ACCV 2024 DEI Scholarship</strong> travel grant.</td>
+      </tr>
+      <tr>
+        <td>2023</td>
+        <td>Awarded <strong>ACM India Anveshan Setu Fellowship</strong>.</td>
+      </tr>
+      <tr>
+        <td>2022–2024</td>
+        <td>Awarded <strong>JRF Fellowship</strong> from UGC NET, India.</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <h2 class="section-title">PUBLICATIONS</h2>
+
+    <h3 style="font-size:0.88rem;font-weight:600;color:var(--muted);margin:0 0 12px;text-transform:uppercase;letter-spacing:0.06em;">Under Review</h3>
+
+    <div class="pub-card" style="border-left: 3px solid #e8a020;">
+      <div class="pub-title">A Robust Facial Emotion Recognition Framework: A Comparative Study on Dataset Diversity and Cross-Dataset Generalization</div>
+      <div class="pub-authors"><strong>Yamini Sahu</strong></div>
+      <div class="pub-venue" style="color:#b07a10;">Under Review</div>
+    </div>
+
+    <h3 style="font-size:0.88rem;font-weight:600;color:var(--muted);margin:24px 0 12px;text-transform:uppercase;letter-spacing:0.06em;">Peer-Reviewed Papers</h3>
+
+    <div class="pub-card">
+      <div class="pub-title">Smart Waste Management: Deep Learning-Based Garbage Classification for Sustainability</div>
+      <div class="pub-authors"><strong>Yamini Sahu</strong>, Nilesh Kumar Sahu</div>
+      <div class="pub-venue">ACM COMPASS 2025</div>
+      <div class="pub-links">
+        <a class="pub-link" href="https://doi.org/10.1145/3715335.3736312" target="_blank">DOI</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-title">Building Usage Classification in Indian Cities: Utilizing Street View Images and Object Detection Models</div>
+      <div class="pub-authors"><strong>Yamini Sahu</strong>, Vasu Dhull, Satyajeet Shashwat, Vaibhav Kumar</div>
+      <div class="pub-venue">ACCV Workshop 2024</div>
+      <div class="pub-links">
+        <a class="pub-link" href="https://doi.org/10.1007/978-981-96-2644-1_22" target="_blank">DOI</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-title">Spatial Clustering and Machine Learning for Crime Prediction: A Case Study on Women Safety in Bhopal</div>
+      <div class="pub-authors"><strong>Yamini Sahu</strong>, Vaibhav Kumar</div>
+      <div class="pub-venue">ACCV Workshop 2024</div>
+      <div class="pub-links">
+        <a class="pub-link" href="https://doi.org/10.1007/978-981-96-2644-1_21" target="_blank">DOI</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-title">Environmental Application of Digital Twins: A Review</div>
+      <div class="pub-authors"><strong>Yamini Sahu</strong>, Vaibhav Kumar</div>
+      <div class="pub-venue">Book Chapter — GeoAI</div>
+      <div class="pub-links">
+        <a class="pub-link" href="https://doi.org/10.1007/978-3-031-62442-1_18" target="_blank">DOI</a>
+      </div>
+    </div>
+
+    <h3 style="font-size:0.88rem;font-weight:600;color:var(--muted);margin:24px 0 12px;text-transform:uppercase;letter-spacing:0.06em;">Posters</h3>
+
+    <div class="pub-card">
+      <div class="pub-title">Beyond Footprints: Estimating Building Heights with Deep Learning and OpenStreetMap Features</div>
+      <div class="pub-authors"><strong>Yamini Sahu</strong>, Gurleen Kaur, Shalvika Srivastav, Prachi Chachondhia, Vaibhav Kumar</div>
+      <div class="pub-venue">WiDs, Mastercard AI Garage</div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2 class="section-title">EXPERIENCE</h2>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-role">PhD Research Scholar</span>
+        <span class="exp-date">Aug 2026 – Present</span>
+      </div>
+      <div class="exp-org">Department of Computer Science &amp; Engineering, BIT Mesra, Ranchi</div>
+      <div class="exp-desc">
+        PhD Research Scholar at Birla Institute of Technology, Mesra, in the Department of Computer Science and Engineering.
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-role">Research Scientist II</span>
+        <span class="exp-date">Sept 2024 – July 2026</span>
+      </div>
+      <div class="exp-org">AIIMS Raipur, Chhattisgarh</div>
+      <div class="exp-desc">
+        Leading a research team at the Department of Trauma &amp; Emergency on the <em>Intelligent Emergency Healthcare System</em> project, focused on developing critical care technologies for remote and underserved hospitals. Core research involves real-time ECG data analysis using deep learning for early detection of cardiovascular diseases, and deploying trained models using MLOps practices into real-time clinical systems.
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-role">Research Fellow / Doctoral Researcher</span>
+        <span class="exp-date">Dec 2021 – Aug 2024</span>
+      </div>
+      <div class="exp-org">Department of Data Science and Engineering, IISER Bhopal</div>
+      <div class="exp-desc">
+        Conducted research in women's crime pattern analysis and urban informatics, resulting in two peer-reviewed publications at ACCV 2024. Worked on ML-based hotspot detection for women's safety, deep learning-based building usage classification, and surveillance coverage optimization. Mentored a team of B.S. students through research implementation. CGPA: 8.5/10 during doctoral coursework.
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2 class="section-title">EDUCATION</h2>
+
+    <div class="edu-item">
+      <div class="edu-dot" style="background:#e8a020;"></div>
+      <div>
+        <div class="edu-degree">PhD in Computer Science &amp; Engineering</div>
+        <div class="edu-inst">Birla Institute of Technology (BIT Mesra), Ranchi</div>
+        <div class="edu-year">2026 – Ongoing</div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-dot"></div>
+      <div>
+        <div class="edu-degree">MTech in Computer Science</div>
+        <div class="edu-inst">Mahaveer Academy of Technology and Science University, Raipur</div>
+        <div class="edu-year">2019 – 2021 &nbsp;·&nbsp; 72.6%</div>
+        <div style="font-size:0.83rem;color:var(--muted);margin-top:2px;">Thesis: Online Face Recognition Attendance System Using Image Processing</div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-dot"></div>
+      <div>
+        <div class="edu-degree">MSc in Information Technology</div>
+        <div class="edu-inst">Pt. Ravishankar Shukla University, Raipur</div>
+        <div class="edu-year">2016 – 2018 &nbsp;·&nbsp; 69.67%</div>
+        <div style="font-size:0.83rem;color:var(--muted);margin-top:2px;">Dissertation: Career Path Guidance Tool Based on Basic Education Using PHP and Web Technologies</div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-dot"></div>
+      <div>
+        <div class="edu-degree">BSc in Computer Science</div>
+        <div class="edu-inst">Pt. Ravishankar Shukla University, Raipur (DB Girls PG College)</div>
+        <div class="edu-year">2013 – 2016 &nbsp;·&nbsp; 72.39%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section id="awards">
+    <h2 class="section-title">HONORS &amp; AWARDS</h2>
+
+    <div class="award-item">
+      <span class="award-year">2024</span>
+      <span class="award-text"><strong>ACCV 2024 DEI Scholarship</strong> — Travel grant for attending ACCV 2024.</span>
+    </div>
+    <div class="award-item">
+      <span class="award-year">2023</span>
+      <span class="award-text"><strong>ACM India Anveshan Setu Fellowship</strong> — ACM India.</span>
+    </div>
+    <div class="award-item">
+      <span class="award-year">2022–24</span>
+      <span class="award-text"><strong>JRF Fellowship from UGC NET</strong> — India.</span>
+    </div>
+    <div class="award-item">
+      <span class="award-year">2018</span>
+      <span class="award-text"><strong>Rank 3rd in Masters University Rankings</strong> — Listed in Top Merit List, India.</span>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2 class="section-title">SKILLS</h2>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <h4>AI &amp; ML</h4>
+        <div class="tags">
+          <span class="tag">Deep Learning</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">DLOps / MLOps</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Programming</h4>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">C</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Tools &amp; Platforms</h4>
+        <div class="tags">
+          <span class="tag">Linux</span>
+          <span class="tag">LaTeX</span>
+          <span class="tag">Overleaf</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Memberships</h4>
+        <div class="tags">
+          <span class="tag">ACM Student Member</span>
+          <span class="tag">IEEE Student Member</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  &copy; 2026 Yamini Sahu &nbsp;·&nbsp; PhD Scholar, BIT Mesra &nbsp;·&nbsp;
+  <a href="mailto:yamini.sahu.rs@gmail.com" style="color:var(--accent);text-decoration:none;">yamini.sahu.rs@gmail.com</a>
+</footer>
+
+<script>
+  // Highlight active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
